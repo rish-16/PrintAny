@@ -1,0 +1,252 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: Avenir Next;
+  height: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+#infobar {
+  position: absolute;
+  width: 500px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #d0d4d8;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 3000;
+}
+
+#infobar #header {
+  text-align: center;
+  height: 80px;
+  width: 100%;
+  position: relative;
+  background-color: #f5f6fa;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#infobar #logo {
+  margin: auto 15px;
+  transition: 0.5s;
+}
+
+#infobar #logo p {
+  color: #1dd1a1;
+  font-weight: 600;
+  font-size: 22px;
+}
+#infobar #logo p span {
+  color: #5f27cd;
+  font-weight: bold;
+}
+
+#infobar #account {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto 15px;
+}
+
+#infobar #account #prof-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin: auto 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#infobar #account #settings {
+  font-size: 27px;
+  color: #8395a7;
+  margin: auto 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#infobar #account #settings:hover {
+  transform: rotate(45deg);
+  color: gold;
+  transition: 0.5s;
+}
+
+#infobar #search-box {
+  height: 80px;
+  width: 100%;
+  background-color: #f4f4f7;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#infobar #search-box #searchbar {
+  width: 95%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-family: Avenir Next;
+  font-size: 15px;
+  margin: auto 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  text-indent: 20px;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+#infobar #search-box #search-button {
+  width: 100px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-family: Avenir Next;
+  font-size: 15px;
+  margin: auto 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  background-color: #1dd1a1;
+  color: white;
+}
+
+#infobar #search-box #search-button:hover {
+  opacity: 0.35;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#infobar #results {
+  position: absolute;
+  width: 100%;
+  top: 240px;
+  left: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+
+.result {
+  width: 95%;
+  min-height: 85px;
+  height: auto;
+  background-color: white;
+  margin: 10px auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.result:hover {
+  /* transform: scale(1.05); */
+  opacity: 0.75;
+  transition: 0.5s;
+}
+
+.result-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  padding: 5px 20px;
+}
+
+.result-location {
+  font-size: 17px;
+  font-weight: 500;
+  padding: 5px 20px;
+}
+
+.result-desc {
+  width: 90%;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-options {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.result-options i {
+  cursor: pointer;
+  font-size: 22px;
+  color: #8395a7;
+}
+
+#options {
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.option-col {
+  margin: auto 10px;
+}
+
+.option-col .option-col-label {
+  color: #8395a7;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.option-col .option-col-select {
+  width: 150px;
+  font-family: Avenir Next;
+  font-size: 14px;
+  height: 35px;
+  border: none;
+  margin-top: 5px;
+}
+
+#tags-area {
+  width: 210px;
+  height: 35px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.search-tag {
+  min-width: 20px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  margin: auto 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: #6a89cc;
+}
+
+#mapview {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 500px;
+  right: 0;
+  background-color: rebeccapurple;
+}

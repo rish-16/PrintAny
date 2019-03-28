@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>PrintAny - Printing on Demand!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+    <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div id="infobar">
+      <div id="header">
+        <div id="logo">
+          <p>Print<span>Any</span></p>
+        </div>
+
+        <div id="account">
+          <p id="settings"><i class="fas fa-cog"></i></p>
+          <img src="Assets/profpic.png" id="prof-pic" />
+        </div>
+      </div>
+
+      <div id="search-box">
+        <input type="text" placeholder="Search your area..." id="searchbar" />
+        <!-- <button id="search-button">Search</button> -->
+      </div>
+
+      <div id="options">
+        <div class="option-col" id="theme">
+          <p class="option-col-label">MAP THEME</p>
+          <select class="option-col-select" id="theme-select">
+            <option value="dark-v9">Dark</option>
+            <option value="Satellite">Satellite</option>
+            <option value="Light">Light</option>
+          </select>
+        </div>
+
+        <div class="option-col" id="tags">
+          <p class="option-col-label">TAGS</p>
+          <div id="tags-area">
+            <p class="search-tag">A4</p>
+            <p class="search-tag">A3</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="results">
+        <!-- <div class="result">
+          <div class="result-desc">
+            <p class="result-title">Result</p>
+            <p class="result-location">32 Carpenter Street, SG 546234</p>
+          </div>
+          <div class="result-options">
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div id="mapview"></div>
+  </body>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+    }
+
+    function showPosition(position) {
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoicmlzaGFiaDE2IiwiYSI6ImNqaTM3MHQxMDA1cW0zcW80cXg4eHhqcGQifQ.yYhLp6B08oCzE502Kxy-pw";
+      // eslint-disable-next-line no-undef
+      var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+      var map = new mapboxgl.Map({
+        container: "mapview",
+        style: "mapbox://styles/mapbox/satellite-v9",
+        center: [position.coords.longitude, position.coords.latitude],
+        zoom: 17
+      });
+
+      var popup = new mapboxgl.Popup({ offset: 25 }).setText("You are here!");
+
+      new mapboxgl.Marker()
+        .setLngLat({
+          lng: position.coords.longitude,
+          lat: position.coords.latitude
+        })
+        .setPopup(popup)
+        .addTo(map);
+    }
+
+    getLocation();
+  </script>
+</html>
