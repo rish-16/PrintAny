@@ -170,6 +170,9 @@ html {
   padding: 5px 20px;
 }
 
+.result-contact-options {
+}
+
 .result-desc {
   width: 90%;
   margin: auto 0;
@@ -202,6 +205,10 @@ html {
 }
 
 .option-col {
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: auto 10px;
 }
 
@@ -240,6 +247,7 @@ html {
   font-weight: bold;
   color: white;
   background-color: #6a89cc;
+  cursor: pointer;
 }
 
 #mapview {

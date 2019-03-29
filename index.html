@@ -53,8 +53,8 @@
           <p class="option-col-label">MAP THEME</p>
           <select class="option-col-select" id="theme-select">
             <option value="dark-v9">Dark</option>
-            <option value="Satellite">Satellite</option>
-            <option value="Light">Light</option>
+            <option value="satellite-v9">Satellite</option>
+            <option value="light-v9">Light</option>
           </select>
         </div>
 
@@ -68,15 +68,19 @@
       </div>
 
       <div id="results">
-        <!-- <div class="result">
+        <div class="result">
           <div class="result-desc">
-            <p class="result-title">Result</p>
-            <p class="result-location">32 Carpenter Street, SG 546234</p>
+            <p class="result-title">32 Carpenter Street, SG 546234</p>
+            <p class="result-location">Result</p>
+            <div class="result-contact-options">
+              <i id="contact-person" class="far fa-envelope"></i>
+              <i id="contact-bookmark" class="far fa-bookmark"></i>
+            </div>
           </div>
           <div class="result-options">
             <i class="fas fa-ellipsis-v"></i>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
@@ -84,6 +88,10 @@
   </body>
 
   <script>
+    const themeSelector = document.getElementById("theme-select");
+
+    $("#themeSelector").change(function() {});
+
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -93,11 +101,11 @@
     function showPosition(position) {
       mapboxgl.accessToken =
         "pk.eyJ1IjoicmlzaGFiaDE2IiwiYSI6ImNqaTM3MHQxMDA1cW0zcW80cXg4eHhqcGQifQ.yYhLp6B08oCzE502Kxy-pw";
-      // eslint-disable-next-line no-undef
+
       var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
       var map = new mapboxgl.Map({
         container: "mapview",
-        style: "mapbox://styles/mapbox/satellite-v9",
+        style: "mapbox://styles/mapbox/streets-v8",
         center: [position.coords.longitude, position.coords.latitude],
         zoom: 17
       });

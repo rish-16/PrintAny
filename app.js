@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   searchbar.addEventListener("input", e => {
-    console.log(e.target.value);
     updateResult(e.target.value);
   });
 });
